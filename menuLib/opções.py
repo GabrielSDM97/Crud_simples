@@ -49,14 +49,16 @@ def op3(nomeArq):
                     print("Não há nenhum cadastro a ser atualizado!")
                     return sleep(1)
                 while True:
-                    idCadastro = int(input("Deseja atualizar qual cadastro (ID)?"))
+                    idCadastro = int(input("Deseja atualizar qual cadastro (ID)? "))
                     if idCadastro >= 0 and idCadastro < len(conteudoArquivo):
                         break
                     print("\033[91mID inválido, tente novamente!\033[m")
+                novoNome = str(input("Digite o novo nome: ")).strip()
+                novaIdade = int(input("Digite a nova idade: "))
             with open(nomeArq, 'w') as arquivo:
                 for idLinha, conteudoLinha in enumerate(conteudoArquivo):
                     if idCadastro == idLinha:
-                        arquivo.write(f"{str(input("Digite o novo nome: ")).strip()};{int(input("Digite a nova idade: "))}\n")
+                        arquivo.write(f"{novoNome};{novaIdade}\n")
                     elif idCadastro != idLinha:
                         arquivo.write(conteudoLinha)
                 print(f"\nAtualização efetuada com sucesso!")
