@@ -1,6 +1,7 @@
 from menuLib.leiaNum import *
 from menuLib.formato import hudMenuOpções
 from menuLib.opções import opção
+import os
 from os import system
 
 nome_arq = 'cadastros.txt'
@@ -14,7 +15,7 @@ def sistema():
         print(f'\nArquivo \'{nome_arq}\' já existe!\n')
     finally:
         while True:
-            system("clear")
+            system("cls" if os.name == "nt" else "clear")
             hudMenuOpções()
             op = leiaInt('Sua opção: ')
             opção(op, nome_arq)
