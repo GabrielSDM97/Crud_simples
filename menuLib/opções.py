@@ -17,7 +17,7 @@ def op1(nomeArq):
             with open(nomeArq, 'at+') as arquivo:
                 arquivo.write(f"{str(input('Nome: ')).strip()};{int(input('Idade: '))}\n")
                 print(f'\nCadastro efetuado com sucesso!')
-                sleep(1)
+                sleep(2)
                 break            
         except (KeyboardInterrupt, ValueError):
             print(f'\033[91mERRO! Por favor, tente novamente!\033[m')
@@ -30,11 +30,11 @@ def op2(nomeArq):
             conteudoArquivo = arquivo.readlines()
             if len(conteudoArquivo) == 0:
                 print("Não há nenhum cadastro a ser mostrado!")
-                return sleep(1)
+                return sleep(2)
             for idLinha, conteudoLinha in enumerate(conteudoArquivo):
                 dadosCadastro = conteudoLinha.split(';')
                 print(f'ID:{idLinha} - {dadosCadastro[0]:<25}{dadosCadastro[1].strip('\n')} anos')
-        sleep(1)
+        sleep(3)
     except:
         print(f'\033[91mERRO ao tentar abrir o arquivo!\033[m')
 
@@ -47,7 +47,7 @@ def op3(nomeArq):
                 conteudoArquivo = arquivo.readlines()
                 if len(conteudoArquivo) == 0:
                     print("Não há nenhum cadastro a ser atualizado!")
-                    return sleep(1)
+                    return sleep(2)
                 while True:
                     idCadastro = int(input("Deseja atualizar qual cadastro (ID)? "))
                     if idCadastro >= 0 and idCadastro < len(conteudoArquivo):
@@ -62,7 +62,7 @@ def op3(nomeArq):
                     elif idCadastro != idLinha:
                         arquivo.write(conteudoLinha)
                 print(f"\nAtualização efetuada com sucesso!")
-                sleep(1)
+                sleep(2)
                 break
         except (KeyboardInterrupt, ValueError, IndexError):
             print(f'\033[91mERRO! Por favor, tente novamente!\033[m')
@@ -76,7 +76,7 @@ def op4(nomeArq):
                 conteudoArquivo = arquivo.readlines()
                 if len(conteudoArquivo) == 0:
                     print("Não há nenhum cadastro a ser removido!")
-                    return sleep(1)
+                    return sleep(2)
                 while True:
                     idCadastro = int(input("Deseja remover qual cadastro (ID)? "))
                     if idCadastro >= 0 and idCadastro < len(conteudoArquivo): 
@@ -87,7 +87,7 @@ def op4(nomeArq):
                     if idLinha != idCadastro:
                         arquivo.write(conteudoLinha)
                 print(f'\nCadastro removido com sucesso!')
-                sleep(1)
+                sleep(2)
                 break
         except (KeyboardInterrupt, ValueError, IndexError):
             print("\033[91mERRO! Por favor, tente novamente!\033[m")
